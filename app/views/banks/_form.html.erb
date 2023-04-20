@@ -1,0 +1,27 @@
+<% if @bank.errors.any? %>
+  <h2><%= t('not_saved_msg') %></h2>
+  <ul>
+    <% @bank.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_with(model: @bank, local: true) do |f| %>
+  <p>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :code %><br/>
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :nit %><br/>
+    <%= f.text_field :nit %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

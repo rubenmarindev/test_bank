@@ -1,0 +1,10 @@
+<h2>Show bank details</h2>
+
+<p><strong>Bank Name: </strong><%= @bank.name %></p>
+<p><strong>Code: </strong><%= @bank.code %></p>
+<p><strong>Nit: </strong><%= @bank.nit %></p>
+
+
+<%= link_to 'Edit', edit_bank_path(@bank) %> |
+<%= link_to 'Delete', bank_path(@bank), method: :delete, data: { confirm: "Are you sure?" } %> |
+<%= link_to 'Return to banks index', banks_path %>
