@@ -1,10 +1,32 @@
-<h2>Show bank details</h2>
+<div id="page-content">
+  <h2 class="text-center mt-4"><%= @bank.name %></h2>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header font-italic">
+            by Rubén Marín
+          </div>
+          <div class="card-body">
+            <div class="card-text text-left"><%= simple_format(@bank.code) %></div>
+            <div class="card-text text-left"><%= simple_format(@bank.nit) %></div>
+            <%= link_to "Edit", edit_bank_path(@bank), class: "btn btn-outline-info" %>
+            <%= link_to "Delete", bank_path(@bank), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(@bank.created_at) %> ago,
+            edited <%= time_ago_in_words(@bank.updated_at) %> ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p><strong>Bank Name: </strong><%= @bank.name %></p>
-<p><strong>Code: </strong><%= @bank.code %></p>
-<p><strong>Nit: </strong><%= @bank.nit %></p>
-
-
-<%= link_to 'Edit', edit_bank_path(@bank) %> |
-<%= link_to 'Delete', bank_path(@bank), method: :delete, data: { confirm: "Are you sure?" } %> |
-<%= link_to 'Return to banks index', banks_path %>
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <%= link_to 'Return to banks index', banks_path %>
+    </div>
+  </div>
+</div>
