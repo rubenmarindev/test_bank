@@ -1,0 +1,33 @@
+<div id="page-content">
+  <h2 class="text-center mt-4"><%= @supplier.name %></h2>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header font-italic">
+            by Rubén Marín
+          </div>
+          <div class="card-body">
+            <div class="card-text text-left"><%= simple_format(@supplier.nit) %></div>
+            <div class="card-text text-left"><%= simple_format(@supplier.contact_name) %></div>
+            <div class="card-text text-left"><%= simple_format(@supplier.bank.name) %></div>
+            <%= link_to "Edit", edit_supplier_path(@supplier), class: "btn btn-outline-info" %>
+            <%= link_to "Delete", supplier_path(@supplier), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(@supplier.created_at) %> ago,
+            edited <%= time_ago_in_words(@supplier.updated_at) %> ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <%= link_to 'Return to suppliers index', suppliers_path %>
+    </div>
+  </div>
+</div>
